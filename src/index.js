@@ -10,12 +10,15 @@ let ConfigObject = Config;
 let LinkParamsObject = OverrideLinkParams;
 let BannersOptionsObject = Banners;
 
-if (!window.singularSdk) {
-    window.singularSdk = SingularObject;
-    window.SingularConfig = ConfigObject;
-} else {
-    SingularObject = window.singularSdk;
-    ConfigObject = window.SingularConfig;
+// Check if we're on the client side before accessing window
+if (typeof window !== 'undefined') {
+    if (!window.singularSdk) {
+        window.singularSdk = SingularObject;
+        window.SingularConfig = ConfigObject;
+    } else {
+        SingularObject = window.singularSdk;
+        ConfigObject = window.SingularConfig;
+    }
 }
 
 export const singularSdk = SingularObject;
