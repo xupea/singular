@@ -1,8 +1,6 @@
-// singular.d.ts
-
 declare module "singular-sdk-ts" {
   // 定义 SingularConfig 类的类型
-  class SingularConfig {
+  class SingularConfigClass {
     constructor(sdkKey: string, sdkSecret: string, productId: string);
   }
 
@@ -14,7 +12,7 @@ declare module "singular-sdk-ts" {
   // 定义 SingularSDK 接口，包含所有方法
   interface SingularSDK {
     // 初始化方法
-    init(config: SingularConfig): void;
+    init(config: SingularConfigClass): void;
 
     // 登录方法，接受用户 ID
     login(userId: string): void;
@@ -52,12 +50,12 @@ declare module "singular-sdk-ts" {
   // 全局 window 对象的类型扩展
   interface Window {
     singularSdk?: SingularSDK;
-    SingularConfig?: typeof SingularConfig; // 类本身
+    SingularConfig?: typeof SingularConfigClass; // 类本身
   }
 
   // 导出类型化的常量
   export const singularSdk: SingularSDK;
-  export const SingularConfig: typeof SingularConfig; // 导出类本身
+  export const SingularConfig: typeof SingularConfigClass; // 导出类本身
   export const LinkParams: LinkParams;
   export const BannersOptions: BannersOptions;
 }
