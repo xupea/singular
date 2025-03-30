@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const packageManifest = require("./package.json"); // Fixed typo: "./package" -> "./package.json"
 const FileManagerPlugin = require("filemanager-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const OUTPUT_FOLDER = path.resolve(__dirname, "dist"); // Use path.resolve for better cross-platform compatibility
 
@@ -56,6 +57,11 @@ module.exports = {
           ],
         },
       },
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "types", to: "types" }, // 复制所有 .d.ts 文件到 dist/types
+      ],
     }),
   ],
   resolve: {

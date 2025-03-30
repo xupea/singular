@@ -6,6 +6,7 @@
   "directories": {
     "test": "tests"
   },
+  "types": "dist/types/singular.d.ts",
   "scripts": {
     "webpack": "webpack",
     "test": "mocha",
@@ -17,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/singular-labs/web-sdk.git"
   },
-  "author": "",
+  "author": "singular",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/singular-labs/web-sdk/issues"
@@ -47,6 +48,7 @@
     "babel-loader": "^9.1.3",
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "chai": "^4.4.1",
+    "copy-webpack-plugin": "^13.0.0",
     "crypto": "^1.0.1",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
